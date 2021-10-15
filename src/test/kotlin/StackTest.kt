@@ -116,4 +116,11 @@ class StackTest {
 
         assertNull(stack.find(2))
     }
+
+    @Test
+    fun `find on ZeroCapacityStack throws Empty`() {
+        val stack = Stack(0)
+
+        assertFailsWith<Stack.Error.Empty> { stack.find(1) }
+    }
 }

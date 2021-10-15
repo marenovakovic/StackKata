@@ -32,7 +32,7 @@ private object ZeroCapacityStack : Stack {
 
     override fun push(element: Int) = throw Stack.Error.Overflow
     override fun pop(): Int = throw Stack.Error.Underflow
-    override fun find(element: Int): Int = -1
+    override fun find(element: Int): Int = throw Stack.Error.Empty
 }
 
 private class BoundedStack(
