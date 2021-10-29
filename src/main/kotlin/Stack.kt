@@ -1,6 +1,4 @@
 sealed interface Stack {
-    companion object
-
     val size: Int
     val isEmpty: Boolean
     val top: Int
@@ -15,6 +13,8 @@ sealed interface Stack {
         object IllegalCapacity : Error("Stack can't have negative capacity.")
         object Empty : Error("Stack is empty.")
     }
+
+    companion object
 }
 
 operator fun Stack.Companion.invoke(capacity: Int): Stack =
