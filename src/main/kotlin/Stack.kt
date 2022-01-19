@@ -13,11 +13,9 @@ sealed interface Stack {
         object IllegalCapacity : Error("Stack can't have negative capacity.")
         object Empty : Error("Stack is empty.")
     }
-
-    companion object
 }
 
-operator fun Stack.Companion.invoke(capacity: Int): Stack =
+fun Stack(capacity: Int): Stack =
     when {
         capacity < 0 -> throw Stack.Error.IllegalCapacity
         capacity == 0 -> ZeroCapacityStack
